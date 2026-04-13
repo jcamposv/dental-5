@@ -1,0 +1,60 @@
+---
+import { services, images } from "../../data/site";
+---
+
+<section class="py-20 lg:py-28 bg-olive/5" id="servicios">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="text-center mb-14">
+      <h2 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-dark mb-4">
+        Servicios Dentales.
+      </h2>
+      <p class="text-muted text-sm max-w-xl mx-auto mb-6">
+        Nos dedicamos a crear sonrisas saludables y hermosas. Confía en nuestro equipo experto para brindarte cuidado gentil y personalizado para toda la familia.
+      </p>
+      <button data-booking class="inline-flex items-center gap-2 bg-terracotta text-white font-semibold rounded-full px-7 py-3 text-sm hover:bg-terracotta-dark transition-colors cursor-pointer">
+        Agendar Cita
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/>
+        </svg>
+      </button>
+      <div class="mt-6 flex justify-center">
+        <div class="w-10 h-10 rounded-full border-2 border-dark/20 flex items-center justify-center">
+          <svg class="w-4 h-4 text-dark/40" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Service cards -->
+    <div class="space-y-4">
+      {services.map((service, i) => (
+        <div class="bg-cream rounded-2xl lg:rounded-3xl p-6 lg:p-8 border border-sand/30">
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-center">
+            <!-- Text -->
+            <div class="lg:col-span-2">
+              <h3 class="font-display text-2xl lg:text-3xl font-bold text-dark mb-3">{service.title}</h3>
+              <p class="text-sm text-muted leading-relaxed max-w-xl mb-4">{service.description}</p>
+              <a href="#" class="inline-flex items-center gap-1 text-sm font-semibold text-terracotta hover:text-terracotta-dark transition-colors">
+                {service.cta}
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
+                </svg>
+              </a>
+            </div>
+            <!-- Image -->
+            <div class="rounded-2xl overflow-hidden aspect-[4/3]">
+              <img
+                src={images.services[i] || images.services[0]}
+                alt={service.title}
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

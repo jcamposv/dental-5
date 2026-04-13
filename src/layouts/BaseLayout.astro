@@ -1,0 +1,35 @@
+---
+import { siteConfig, booking } from "../data/site";
+import BookingModal from "../components/booking/BookingModal";
+import "../styles/global.css";
+
+interface Props { title?: string; description?: string; }
+const { title = siteConfig.title, description = siteConfig.description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={siteConfig.url} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="canonical" href={siteConfig.url} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body class="min-h-screen">
+    <slot />
+    <BookingModal client:load whatsappNumber={booking.whatsapp.number} googleCalendarEnabled={booking.googleCalendar.enabled} clinicName={siteConfig.name} />
+    <script>
+      document.addEventListener("click", (e) => {
+        const target = (e.target as HTMLElement).closest("[data-booking]");
+        if (target) { e.preventDefault(); window.dispatchEvent(new CustomEvent("open-booking")); }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+---
+import { navigation, siteConfig } from "../../data/site";
+import MobileMenu from "./MobileMenu";
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-cream/95 backdrop-blur-md border-b border-sand/30">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 lg:h-20">
+      <!-- Logo -->
+      <a href="#inicio" class="flex items-center">
+        <img src="/logo-center.png" alt="Crenter Dental" class="h-10 lg:h-12 w-auto" />
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden lg:flex items-center gap-8">
+        {navigation.map((item) => (
+          <a href={item.href} class="text-sm font-medium text-dark/70 hover:text-dark transition-colors">
+            {item.label}
+          </a>
+        ))}
+      </nav>
+
+      <!-- Right side -->
+      <div class="flex items-center gap-3">
+        <button data-booking class="hidden sm:inline-flex items-center gap-2 bg-terracotta text-white font-semibold rounded-full px-6 py-2.5 text-sm hover:bg-terracotta-dark transition-colors cursor-pointer">
+          Agendar Cita
+        </button>
+        <MobileMenu client:load />
+      </div>
+    </div>
+  </div>
+</header>

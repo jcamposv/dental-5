@@ -1,0 +1,59 @@
+---
+import { hero, images } from "../../data/site";
+---
+
+<section class="pt-28 lg:pt-36 bg-cream overflow-hidden" id="inicio">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Main headline -->
+    <div class="text-center mb-8">
+      <h1 class="font-display text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-dark leading-[1.05]">
+        <span class="italic font-normal">{hero.headline}</span>
+      </h1>
+      <p class="mt-4 text-sm text-muted max-w-md mx-auto leading-relaxed">
+        Aprovecha el poder de la tecnología avanzada para diagnósticos más rápidos, planes de tratamiento personalizados y cuidado preventivo proactivo.
+      </p>
+      <div class="mt-6">
+        <button data-booking class="inline-flex items-center gap-2 bg-terracotta text-white font-semibold rounded-full px-7 py-3 text-sm hover:bg-terracotta-dark transition-colors cursor-pointer">
+          {hero.cta}
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mission row -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start mb-10 max-w-4xl mx-auto">
+      <div>
+        <p class="font-display text-2xl lg:text-3xl text-dark leading-snug">
+          <span class="italic font-normal">Nuestra misión</span> es hacer que tu sonrisa sea más hermosa.
+        </p>
+      </div>
+      <div>
+        <p class="text-sm text-muted leading-relaxed">
+          {hero.mission.description}
+        </p>
+      </div>
+    </div>
+
+    <!-- Hero image -->
+    <div class="relative rounded-3xl overflow-hidden aspect-[16/7] max-w-6xl mx-auto shadow-xl">
+      <img
+        src={images.hero}
+        alt="Paciente sonriendo durante consulta dental"
+        class="w-full h-full object-cover"
+        loading="eager"
+      />
+    </div>
+
+    <!-- Trust logos bar -->
+    <div class="mt-12 pb-12 flex flex-wrap items-center justify-center gap-10 lg:gap-16 opacity-50">
+      <span class="text-sm font-bold tracking-widest text-dark uppercase">3M Dental</span>
+      <span class="text-sm font-bold tracking-widest text-dark uppercase">Dentsply Sirona</span>
+      <span class="text-sm font-bold tracking-widest text-dark uppercase">Ivoclar</span>
+      <span class="text-sm font-bold tracking-widest text-dark uppercase">Kerr Dental</span>
+      <span class="text-sm font-bold tracking-widest text-dark uppercase">Colgate Pro</span>
+      <span class="text-sm font-bold tracking-widest text-dark uppercase">Straumann</span>
+    </div>
+  </div>
+</section>
